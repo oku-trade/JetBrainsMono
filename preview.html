@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JetBrains Mono Preview</title>
+<style>
+  @font-face { font-family: 'JBMono'; src: url('fonts/variable/JetBrainsMono[wght].ttf'); font-style: normal; }
+  @font-face { font-family: 'JBMono'; src: url('fonts/variable/JetBrainsMono-Italic[wght].ttf'); font-style: italic; }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: system-ui, sans-serif; background: #1e1e2e; color: #cdd6f4; padding: 2rem; }
+  h1 { margin-bottom: 1rem; font-size: 1.5rem; color: #89b4fa; }
+  h2 { margin: 2rem 0 0.5rem; font-size: 1rem; color: #a6adc8; }
+  .sample { font-family: 'JBMono', monospace; font-size: 16px; line-height: 1.6; padding: 1rem; background: #181825; border-radius: 8px; margin-bottom: 1rem; white-space: pre-wrap; }
+  .controls { display: flex; gap: 1rem; align-items: center; margin-bottom: 2rem; flex-wrap: wrap; }
+  .controls label { font-size: 0.875rem; }
+  .controls input[type=range] { width: 200px; }
+  .sizes .sample { display: inline-block; margin-right: 2rem; }
+  .ligatures { color: #f38ba8; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1rem; }
+</style>
+</head>
+<body>
+<h1>JetBrains Mono - Font Preview</h1>
+
+<div class="controls">
+  <label>Weight: <strong id="wval">400</strong></label>
+  <input type="range" id="weight" min="100" max="800" step="1" value="400">
+  <label>Size: <strong id="sval">16</strong>px</label>
+  <input type="range" id="size" min="10" max="48" step="1" value="16">
+  <label><input type="checkbox" id="italic"> Italic</label>
+</div>
+
+<h2>Code Sample</h2>
+<div class="sample" id="code">const greet = (name: string): string => {
+  if (!name) return "Hello, World!";
+  return `Hello, ${name}!`; // greeting
+};
+
+function fibonacci(n: number): number {
+  if (n <= 1) return n;
+  return fibonacci(n - 1) + fibonacci(n - 2);
+}
+
+// 0123456789 !@#$%^&*() il1L oO0Q
+// {} [] () &lt;&gt; :: -&gt; =&gt; &lt;- &lt;=&gt; !== === &lt;= &gt;=</div>
+
+<h2>Ligatures</h2>
+<div class="sample ligatures" id="ligs">-&gt;  =&gt;  &lt;-  &lt;=  &gt;=  !=  !==  ===  ==  ::  ...  &lt;/&gt;
+&lt;=&gt;  &gt;&gt;=  =&lt;&lt;  |&gt;  &lt;|  &lt;|&gt;  ||  &amp;&amp;  ++  --
+www  /*  */  /**  //  ///  #{  #[  #(  #_  #!
+&lt;~  ~&gt;  ~~  &lt;~&gt;  %%  &lt;!--  --&gt;  /\  \/</div>
+
+<h2>Weights (100 - 800)</h2>
+<div class="grid" id="weights"></div>
+
+<h2>Character Set</h2>
+<div class="sample" id="charset">ABCDEFGHIJKLMNOPQRSTUVWXYZ
+abcdefghijklmnopqrstuvwxyz
+0123456789
+! " # $ % &amp; ' ( ) * + , - . / : ; &lt; = &gt; ? @ [ \ ] ^ _ ` { | } ~
+&#x00C0;&#x00C1;&#x00C2;&#x00C3;&#x00C4;&#x00C5;&#x00C6;&#x00C7;&#x00C8;&#x00C9;&#x00CA;&#x00CB;&#x00CC;&#x00CD;&#x00CE;&#x00CF;
+&#x0410;&#x0411;&#x0412;&#x0413;&#x0414;&#x0415;&#x0416;&#x0417;&#x0418;&#x0419;&#x041A;&#x041B;&#x041C;&#x041D;&#x041E;&#x041F;
+&#x0391;&#x0392;&#x0393;&#x0394;&#x0395;&#x0396;&#x0397;&#x0398;&#x0399;&#x039A;&#x039B;&#x039C;&#x039D;&#x039E;&#x039F;&#x03A0;</div>
+
+<script>
+const weight = document.getElementById('weight');
+const size = document.getElementById('size');
+const italic = document.getElementById('italic');
+const samples = document.querySelectorAll('.sample');
+
+function update() {
+  document.getElementById('wval').textContent = weight.value;
+  document.getElementById('sval').textContent = size.value;
+  samples.forEach(s => {
+    s.style.fontWeight = weight.value;
+    s.style.fontSize = size.value + 'px';
+    s.style.fontStyle = italic.checked ? 'italic' : 'normal';
+  });
+}
+
+weight.addEventListener('input', update);
+size.addEventListener('input', update);
+italic.addEventListener('change', update);
+
+// Generate weight grid
+const grid = document.getElementById('weights');
+const names = {100:'Thin',200:'ExtraLight',300:'Light',400:'Regular',500:'Medium',600:'SemiBold',700:'Bold',800:'ExtraBold'};
+for (const [w, name] of Object.entries(names)) {
+  const div = document.createElement('div');
+  div.className = 'sample';
+  div.style.fontWeight = w;
+  div.textContent = `${name} (${w})\nThe quick brown fox jumps over the lazy dog.\n0123456789 -> => !== ===`;
+  grid.appendChild(div);
+}
+</script>
+</body>
+</html>

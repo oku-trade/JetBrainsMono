@@ -4,4 +4,8 @@ out
 lib
 source/JetBrainsMono.backup
 env
+.venv
 .DS_Store
+sources/instance_ufos/
+sources/build.ninja
+sources/.ninja_log

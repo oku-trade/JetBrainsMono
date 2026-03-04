@@ -112,14 +112,14 @@ value = 1;
 name = "Axis Mappings";
 value = {
 wght = {
-100 = 100;
-220 = 200;
-320 = 300;
-400 = 400;
-460 = 500;
-520 = 600;
-634 = 700;
-800 = 800;
+"100" = 100;
+"220" = 200;
+"320" = 300;
+"400" = 400;
+"460" = 500;
+"520" = 600;
+"634" = 700;
+"800" = 800;
 };
 };
 }
@@ -2067,9 +2067,11 @@ pos = 550;
 over = -10;
 },
 {
+over = 0;
 pos = -270;
 },
 {
+over = 0;
 pos = 9;
 }
 );
@@ -2179,9 +2181,11 @@ pos = 550;
 over = -10;
 },
 {
+over = 0;
 pos = -270;
 },
 {
+over = 0;
 pos = 9;
 }
 );
@@ -2284,9 +2288,11 @@ pos = 550;
 over = -10;
 },
 {
+over = 0;
 pos = -270;
 },
 {
+over = 0;
 pos = 9;
 }
 );
@@ -64682,23 +64688,6 @@ nodes = (
 (337,120,o),
 (275,120,cs)
 );
-},
-{
-closed = 1;
-nodes = (
-(346,301,o),
-(377,325,o),
-(384,368,cs),
-(391,410,o),
-(367,433,o),
-(325,433,cs),
-(283,433,o),
-(251,410,o),
-(244,368,cs),
-(237,325,o),
-(262,301,o),
-(304,301,cs)
-);
 }
 );
 width = 600;
@@ -64743,23 +64732,6 @@ nodes = (
 (347,67,o),
 (267,67,cs)
 );
-},
-{
-closed = 1;
-nodes = (
-(341,310,o),
-(368,331,o),
-(374,368,cs),
-(380,404,o),
-(359,424,o),
-(323,424,cs),
-(287,424,o),
-(260,404,o),
-(254,368,cs),
-(248,331,o),
-(269,310,o),
-(305,310,cs)
-);
 }
 );
 width = 600;
@@ -64803,23 +64775,6 @@ nodes = (
 (427,100,o),
 (357,34,o),
 (262,34,cs)
-);
-},
-{
-closed = 1;
-nodes = (
-(337,321,o),
-(360,338,o),
-(364,368,cs),
-(369,398,o),
-(352,414,o),
-(322,414,cs),
-(292,414,o),
-(269,398,o),
-(264,368,cs),
-(260,338,o),
-(277,321,o),
-(307,321,cs)
 );
 }
 );
@@ -123848,7 +123803,7 @@ width = 600;
 unicode = 94;
 },
 {
-glyphname = infinity;
+glyphname = "infinity";
 layers = (
 {
 layerId = "9ADF6715-3D0F-493D-8567-18A6FBCFC567";
@@ -146333,10 +146288,10 @@ layers = (
 layerId = "EDF5EB54-295C-4C90-9A2F-67CD82979CFF";
 shapes = (
 {
-angle = 90;
+angle = -90;
 pos = (660,660);
 ref = upBlackSmallTriangle;
-scale = (-1,1);
+scale = (1,-1);
 }
 );
 width = 600;
@@ -146345,10 +146300,10 @@ width = 600;
 layerId = "CCC0BD40-BA8C-414E-B576-CF0B94E6C996";
 shapes = (
 {
-angle = 90;
+angle = -90;
 pos = (660,660);
 ref = upBlackSmallTriangle;
-scale = (-1,1);
+scale = (1,-1);
 }
 );
 width = 600;
@@ -146357,10 +146312,10 @@ width = 600;
 layerId = "9ADF6715-3D0F-493D-8567-18A6FBCFC567";
 shapes = (
 {
-angle = 90;
+angle = -90;
 pos = (660,660);
 ref = upBlackSmallTriangle;
-scale = (-1,1);
+scale = (1,-1);
 }
 );
 width = 600;
@@ -166320,17 +166275,20 @@ name = "ExtraBold Italic";
 weightClass = 800;
 },
 {
+active = 0;
+exports = 0;
 customParameters = (
 {
 name = "Variable Font Origin";
 value = "CCC0BD40-BA8C-414E-B576-CF0B94E6C996";
 }
 );
-exports = 0;
 name = Regular;
 type = variable;
 }
 );
+kerningLTR = {
+};
 metrics = (
 {
 type = ascender;
